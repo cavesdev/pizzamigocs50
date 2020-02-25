@@ -64,4 +64,16 @@ class DinnerPlatter(models.Model):
     large_price = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} Platter'
+
+
+class Order(models.Model):
+    pizzas = models.ManyToManyField(Pizza, blank=True)
+    pizza_toppings = models.ManyToManyField(Ingredient, blank=True)
+    subs = models.ManyToManyField(Sub, blank=True)
+    pastas = models.ManyToManyField(Pasta, blank=True)
+    salads = models.ManyToManyField(Salad, blank=True)
+    platters = models.ManyToManyField(DinnerPlatter, blank=True)
+    # extras = models.ManyToManyField(Ingredient, blank=True)
+
+    total_price = models.DecimalField(max_digits=5, decimal_places=2)

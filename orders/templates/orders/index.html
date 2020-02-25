@@ -1,0 +1,201 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Luigi's</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'orders/fonts/beyond_the_mountains-webfont.css' %}" type="text/css"/>
+
+    <!-- Stylesheets -->
+    <link href="{% static 'orders/plugin-frameworks/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'orders/plugin-frameworks/swiper.css' %}" rel="stylesheet">
+    <link href="{% static 'orders/fonts/ionicons.css' %}" rel="stylesheet">
+    <link href="{% static 'orders/common/styles.css' %}" rel="stylesheet">
+
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <a class="logo" href="#"><img src="{% static 'orders/images/logo-white.png' %}" alt="Logo"></a>
+
+        <div class="right-area">
+            <h6><a class="plr-20 color-white btn-fill-primary" href="#">CART</a></h6>
+        </div><!-- right-area -->
+
+        <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
+
+        <ul class="main-menu font-mountainsre" id="main-menu">
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">LOGIN</a></li>
+            <li><a href="#">REGISTER</a></li>
+        </ul>
+
+        <div class="clearfix"></div>
+    </div><!-- container -->
+</header>
+
+
+<section class="bg-1 h-900x main-slider pos-relative">
+    <div class="triangle-up pos-bottom"></div>
+    <div class="container h-100">
+        <div class="dplay-tbl">
+            <div class="dplay-tbl-cell center-text color-white">
+
+                <h1 class="mt-30 mb-15">Pizzas</h1>
+                <h1 class="mt-30 mb-15">Pastas</h1>
+                <h1 class="mt-30 mb-15">Subs</h1>
+                <h1 class="mt-30 mb-15">And more !</h1>
+                <h5><a href="#menu" class="btn-primaryc plr-25"><b>SEE TODAYS MENU</b></a></h5>
+            </div><!-- dplay-tbl-cell -->
+        </div><!-- dplay-tbl -->
+    </div><!-- container -->
+</section>
+
+<section id="menu">
+    <div class="container">
+        <div class="heading">
+            <img class="heading-img" src="{% static 'orders/images/heading_logo.png' %}" alt="">
+            <h2>Our Menu</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="selecton brdr-b-primary mb-70">
+                    <li><a class="active" href="#" data-select="*"><b>ALL</b></a></li>
+                    <li><a href="#" data-select="pizza"><b>PIZZA</b></a></li>
+                    <li><a href="#" data-select="sub"><b>SUBS</b></a></li>
+                    <li><a href="#" data-select="pasta"><b>PASTA</b></a></li>
+                    <li><a href="#" data-select="salad"><b>SALADS</b></a></li>
+                    <li><a href="#" data-select="platter"><b>PLATTERS</b></a></li>
+                </ul>
+            </div><!--col-sm-12-->
+        </div><!--row-->
+
+        <div class="row">
+            {% for pizza in pizzas %}
+                <div class="col-md-6 food-menu pizza">
+                    <div class="sided-90x mb-30 ">
+                        <div class="s-left">
+                            <img class="br-3" src="{% static 'orders/images/pizza.jpg' %}" alt="Menu Image">
+                        </div><!--s-left-->
+                        <div class="s-right">
+                            <h5 class="mb-10"> <b>{{ pizza }}</b> </h5>
+                            <h5> <button class="color-primary">Add</button> > Small <b class="color-primary float-right">{{ pizza.small_price }}</b></h5>
+                            <h5> <button class="color-primary">Add</button> > Large <b class="color-primary float-right">{{ pizza.large_price }}</b></h5>
+                        </div><!--s-right-->
+                    </div><!-- sided-90x -->
+                </div><!-- food-menu -->
+            {% endfor %}
+
+            {% for sub in subs %}
+                <div class="col-md-6 food-menu sub">
+                    <div class="sided-90x mb-30 ">
+                        <div class="s-left">
+                            <img class="br-3" src="{% static 'orders/images/sub.jpg' %}" alt="Menu Image">
+                        </div><!--s-left-->
+                        <div class="s-right">
+                            <h5 class="mb-10"> <b>{{ sub }}</b> </h5>
+                            <h5> <button class="color-primary">Add</button> > Small <b class="color-primary float-right">{{ sub.small_price }}</b></h5>
+                            <h5> <button class="color-primary">Add</button> > Large <b class="color-primary float-right">{{ sub.large_price }}</b></h5>
+                        </div><!--s-right-->
+                    </div><!-- sided-90x -->
+                </div><!-- food-menu -->
+            {% endfor %}
+
+            {% for pasta in pastas %}
+                <div class="col-md-6 food-menu pasta">
+                    <div class="sided-90x mb-30 ">
+                        <div class="s-left">
+                            <img class="br-3" src="{% static 'orders/images/pasta.jpg' %}" alt="Menu Image">
+                        </div><!--s-left-->
+                        <div class="s-right">
+                            <h5 class="mb-10"> <b>{{ pasta }}</b> </h5>
+                            <h5> <button class="color-primary">Add</button> <b class="color-primary float-right">{{ pasta.price }}</b></h5>
+                        </div><!--s-right-->
+                    </div><!-- sided-90x -->
+                </div><!-- food-menu -->
+            {% endfor %}
+
+            {% for salad in salads %}
+                <div class="col-md-6 food-menu salad">
+                    <div class="sided-90x mb-30 ">
+                        <div class="s-left">
+                            <img class="br-3" src="{% static 'orders/images/salad.jpg' %}" alt="Menu Image">
+                        </div><!--s-left-->
+                        <div class="s-right">
+                            <h5 class="mb-10"> <b>{{ salad }}</b> </h5>
+                            <h5> <button class="color-primary">Add</button><b class="color-primary float-right">{{ salad.price }}</b></h5>
+                        </div><!--s-right-->
+                    </div><!-- sided-90x -->
+                </div><!-- food-menu -->
+            {% endfor %}
+
+            {% for platter in platters %}
+                <div class="col-md-6 food-menu platter">
+                    <div class="sided-90x mb-30 ">
+                        <div class="s-left">
+                            <img class="br-3" src="{% static 'orders/images/platter.jpg' %}" alt="Menu Image">
+                        </div><!--s-left-->
+                        <div class="s-right">
+                            <h5 class="mb-10"> <b>{{ platter }}</b> </h5>
+                            <h5> <button class="color-primary">Add</button> > Small <b class="color-primary float-right">{{ platter.small_price }}</b></h5>
+                            <h5> <button class="color-primary">Add</button> > Large <b class="color-primary float-right">{{ platter.large_price }}</b></h5>
+                        </div><!--s-right-->
+                    </div><!-- sided-90x -->
+                </div><!-- food-menu -->
+            {% endfor %}
+
+        </div><!-- row -->
+    </div><!-- container -->
+</section>
+
+<footer class="pb-50  pt-70 pos-relative">
+    <div class="pos-top triangle-bottom"></div>
+    <div class="container-fluid">
+        <a href="#"><img src="{% static 'orders/images/logo-white.png' %}" alt="Logo"></a>
+
+        <div class="pt-30">
+            <p class="underline-secondary"><b>Address:</b></p>
+            <p>481 Creekside Lane Avila Beach, CA 93424 </p>
+        </div>
+
+        <div class="pt-30">
+            <p class="underline-secondary mb-10"><b>Phone:</b></p>
+            <a href="tel:+53 345 7953 32453 ">+53 345 7953 32453 </a>
+        </div>
+
+        <div class="pt-30">
+            <p class="underline-secondary mb-10"><b>Email:</b></p>
+            <a href="mailto:yourmail@gmail.com"> pizzamigo@local.com</a>
+        </div>
+
+        <ul class="icon mt-30">
+            <li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+            <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="ion-social-dribbble-outline"></i></a></li>
+            <li><a href="#"><i class="ion-social-linkedin"></i></a></li>
+            <li><a href="#"><i class="ion-social-vimeo"></i></a></li>
+        </ul>
+
+        <p class="color-light font-9 mt-50 mt-sm-30"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+    </div><!-- container -->
+</footer>
+
+<!-- SCRIPTS -->
+<script src="{% static 'orders/plugin-frameworks/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'orders/plugin-frameworks/bootstrap.min.js' %}"></script>
+<script src="{% static 'orders/plugin-frameworks/swiper.js' %}"></script>
+<script src="{% static 'orders/common/scripts.js' %}"></script>
+
+</body>
+</html>
