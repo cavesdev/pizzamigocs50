@@ -1,0 +1,13 @@
+/*
+LOCAL CHANGES
+*/
+
+form {
+        background-color: white;
+        border-radius: 20px;
+        padding: 5%;
+        margin: 5% 10%;
+        opacity: 90%;
+        color: black;
+        font-weight: bold;
+}
